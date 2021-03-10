@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import store from "./store";
+import { Provider } from "react-redux";
+import { fetchData } from "./actions";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Call the function from redux that fetches all profiles from trettons API
+fetchData();
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
