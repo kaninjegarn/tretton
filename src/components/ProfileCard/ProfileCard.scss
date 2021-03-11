@@ -1,0 +1,52 @@
+@import '../../assets/scss/mixins.scss';
+
+.profile {
+  height: 300px;
+  width: 270px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ 
+  &__image {
+    max-height: 200px;
+    width: 270px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    &--portrait {
+      height: 200px;
+      width: 270px;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding: 20px 15px 0 15px;
+    &--upperRow {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    &--lowerRow {
+      display: flex;
+    }
+  }
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: space-between;
+
+  &__github {
+    @include socialLinksStyle('../../assets/images/github.svg');
+  }
+
+  &__twitter {
+    @include socialLinksStyle('../../assets/images/twitter.svg');
+  }
+
+  &__linkedin {
+    @include socialLinksStyle('../../assets/images/linkedin.svg');
+  }
+}

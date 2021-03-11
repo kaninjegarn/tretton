@@ -5,13 +5,16 @@ import {
 const initialState = {
 };
 
-export default (state = initialState, action) => {
+const app = (state = initialState, action) => {
   switch (action.type) {
     case SET_PROFILES:
       return {
         ...state,
         profiles: action.profiles
       };
+    default:
   }
   return state;
 }
+
+export default app;
