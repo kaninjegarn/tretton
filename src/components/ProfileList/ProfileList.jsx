@@ -1,13 +1,10 @@
 import React from 'react';
-import ProfileCard from '../ProfileCard/ProfileCard';
+import { ProfileCard } from '../index';
 import './ProfileList.scss';
 
 const ProfileList = ({profiles}) => {
   // This is used to give every profileCard a unique key
   let key = 0
-
-  // remove
-  console.log(profiles)
   return (
     <div className="profileList">
       {

@@ -4,7 +4,7 @@ import {
 } from "../types";
 
 const initialState = {
-  text: ''
+  text: "",
 };
 
 const app = (state = initialState, action) => {
