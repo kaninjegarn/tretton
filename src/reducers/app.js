@@ -1,8 +1,10 @@
 import {
   SET_PROFILES,
+  SET_TEXT,
 } from "../types";
 
 const initialState = {
+  text: ''
 };
 
 const app = (state = initialState, action) => {
@@ -11,6 +13,11 @@ const app = (state = initialState, action) => {
       return {
         ...state,
         profiles: action.profiles
+      };
+    case SET_TEXT:
+      return {
+        ...state,
+        text: action.text
       };
     default:
   }
