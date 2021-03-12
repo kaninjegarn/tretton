@@ -3,7 +3,6 @@ import { setText } from "../../actions";
 import './Input.scss';
 
 const Input = ({ text }) => {
-  console.log(text)
   return(
     <div className="searchPanel">
       <input

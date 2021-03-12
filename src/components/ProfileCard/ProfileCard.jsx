@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProfileCard.scss';
 
-const ProfileCard = ({name, email, location, github, twitter, linkedin, phone, image}) => {
+const ProfileCard = ({ name, email, location, github, twitter, linkedin, phone, image, text}) => {
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    // whenever you clear the input -> show all profiles again(reset)
+    if (text || text === "") {
+      setShow(true);
+    }
+    // if name doesnt match text -> dont show it
+    if (text && !name.toLowerCase().includes(text.toLowerCase())) {
+      setShow(false);
+    }
+  }, [text])
+
   return (
-    <div className="profile">
+    <div className={`profile ${show ? '' : 'hide'}`}>
       <div className="profile__image">
         <img className="profile__image--portrait" src={image} alt=""/>
       </div>
