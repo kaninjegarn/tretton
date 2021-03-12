@@ -2,6 +2,7 @@ import store from "../store";
 
 import {
   SET_PROFILES,
+  SET_TEXT,
 } from "../types";
 
 export const fetchData = async () => {
@@ -20,5 +21,12 @@ export const setProfiles = (profiles) => {
   store.dispatch({
     type: SET_PROFILES,
     profiles: profiles
+  });
+}
+
+export const setText = (text) => {
+  store.dispatch({
+    type: SET_TEXT,
+    text: text
   });
 }
