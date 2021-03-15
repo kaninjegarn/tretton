@@ -1,52 +1,23 @@
 import React, { useState } from 'react';
 import { ProfileCard } from '../index';
 import './ProfileList.scss';
-// import Sort from '../../assets/helpers/Sort';
 import { getPages, orderByAsc, orderByDesc } from '../../assets/helpers'
 
 const ProfileList = ({profiles}) => {
   const [sort, setSort] = useState('asc');
   const [currentPage, setCurrentPage] = useState(0);
 
+  // Check if profiles is set
   if (profiles) {
-    // var employees = new Sort(...profiles);
     let tempProfiles = [...profiles]
     var sorted;
-    if(sort === 'asc') {
+    if (sort === 'asc') {
       sorted = tempProfiles.sort(orderByAsc);
     } else if (sort === 'desc') {
       sorted = tempProfiles.sort(orderByDesc);
     }
-    // var sortedEmployees = orderBy(tempProfiles, sort);
-    console.log(sorted, profiles)
     var pages = getPages(sorted, 50);
   }
-
-  // if(profiles) {
-  //   const test = profiles.sort(function (a, b) {
-  //     var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-  //     var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-  //     if(sort === "asc") {
-  //       if (nameB < nameA) {
-  //         return 1;
-  //       }
-  //       if (nameB > nameA) {
-  //         return -1;
-  //       }
-  //     }
-  //     if (sort === "desc") {
-  //       if (nameB < nameA) {
-  //         return -1;
-  //       }
-  //       if (nameB > nameA) {
-  //         return 1;
-  //       }
-  //     }
-  //     // names must be equal
-  //     return 0;
-  //   });
-  //   console.log(test)
-  // }
   // This is used to give every profileCard a unique key
   let key = 0
   return (
@@ -93,25 +64,6 @@ const ProfileList = ({profiles}) => {
               image={profile.imagePortraitUrl}
             />)
         }
-        
-        {/* {
-          profiles && profiles.length > 0 ? profiles.map(profile => {
-            return (
-              <ProfileCard
-                key={key++}
-                name={profile.name}
-                email={profile.email}
-                location={profile.office}
-                github={profile.gitHub}
-                twitter={profile.twitter}
-                linkedin={profile.linkedIn}
-                phone={profile.phoneNumber}
-                image={profile.imagePortraitUrl}
-              />
-            )
-          }) : 
-          <div>Searching...</div>
-        } */}
       </div>
       <div className="pagination__bottom">
         {currentPage !== 0 &&

@@ -1,3 +1,4 @@
+// compare every element with another and sorting it A-Z
 function orderByAsc(a, b) {
   if (a.name < b.name) {
     return -1;
