@@ -18,7 +18,12 @@ const ProfileCard = ({ name, email, location, github, twitter, linkedin, phone, 
   return (
     <div className={`profile ${show ? '' : 'hide'}`}>
       <div className="profile__image">
-        <img className="profile__image--portrait" src={image} alt=""/>
+        {image != null &&
+          <img className="profile__image--portrait" src={image} alt=""/>
+        }
+        {image === null && 
+          <div className="profile__image--missing"></div>
+        }
       </div>
       <div className="profile__content">
         <div className="profile__content--upperRow">
