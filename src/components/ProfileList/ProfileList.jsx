@@ -1,43 +1,52 @@
 import React, { useState } from 'react';
 import { ProfileCard } from '../index';
 import './ProfileList.scss';
-import Sort from '../../assets/helpers/Sort';
+// import Sort from '../../assets/helpers/Sort';
+import { getPages, orderByAsc, orderByDesc } from '../../assets/helpers'
 
 const ProfileList = ({profiles}) => {
   const [sort, setSort] = useState('asc');
   const [currentPage, setCurrentPage] = useState(0);
 
-  if(profiles) {
-    var employees = new Sort(...profiles);
-    // var sortedEmployees = employees.orderBy('id', sort);
-    var pages = employees.getPages(50);
+  if (profiles) {
+    // var employees = new Sort(...profiles);
+    let tempProfiles = [...profiles]
+    var sorted;
+    if(sort === 'asc') {
+      sorted = tempProfiles.sort(orderByAsc);
+    } else if (sort === 'desc') {
+      sorted = tempProfiles.sort(orderByDesc);
+    }
+    // var sortedEmployees = orderBy(tempProfiles, sort);
+    console.log(sorted, profiles)
+    var pages = getPages(sorted, 50);
   }
 
-  if(profiles) {
-    const test = profiles.sort(function (a, b) {
-      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-      if(sort === "asc") {
-        if (nameB < nameA) {
-          return 1;
-        }
-        if (nameB > nameA) {
-          return -1;
-        }
-      }
-      if (sort === "desc") {
-        if (nameB < nameA) {
-          return -1;
-        }
-        if (nameB > nameA) {
-          return 1;
-        }
-      }
-      // names must be equal
-      return 0;
-    });
-    console.log(test)
-  }
+  // if(profiles) {
+  //   const test = profiles.sort(function (a, b) {
+  //     var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+  //     var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  //     if(sort === "asc") {
+  //       if (nameB < nameA) {
+  //         return 1;
+  //       }
+  //       if (nameB > nameA) {
+  //         return -1;
+  //       }
+  //     }
+  //     if (sort === "desc") {
+  //       if (nameB < nameA) {
+  //         return -1;
+  //       }
+  //       if (nameB > nameA) {
+  //         return 1;
+  //       }
+  //     }
+  //     // names must be equal
+  //     return 0;
+  //   });
+  //   console.log(test)
+  // }
   // This is used to give every profileCard a unique key
   let key = 0
   return (
@@ -61,7 +70,7 @@ const ProfileList = ({profiles}) => {
       </div>
     </div>
       <div className="pagination__top">
-        {currentPage != 0 && 
+        {currentPage !== 0 && 
           <div className="pagination__button" onClick={() => setCurrentPage(currentPage - 1)}>Previous</div>}
         <h3 className="pagination__currentPage">Page {currentPage + 1}</h3>
         { pages && pages.length > currentPage + 1 &&
@@ -105,7 +114,7 @@ const ProfileList = ({profiles}) => {
         } */}
       </div>
       <div className="pagination__bottom">
-        {currentPage != 0 &&
+        {currentPage !== 0 &&
           <div className="pagination__button" onClick={() => setCurrentPage(currentPage - 1)}>Previous</div>}
         <h3 className="pagination__currentPage">Page {currentPage + 1}</h3>
         {pages && pages.length > currentPage + 1 &&

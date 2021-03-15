@@ -4,19 +4,19 @@ class ProductList extends Array {
     super(...args);
   }
 
-  orderBy(criteria, order) {
-    switch (order) {
-      case 'asc':
-        return this.sort((a, b) => a.name - b.name);
-      case 'desc':
-        return this.sort((a, b) => b.name - a.name);
+  // orderBy(criteria, order) {
+  //   switch (order) {
+  //     case 'asc':
+  //       return this.sort((a, b) => a.name - b.name);
+  //     case 'desc':
+  //       return this.sort((a, b) => b.name - a.name);
 
-      default:
-        return this;
-    }
-  }
+  //     default:
+  //       return this;
+  //   }
+  // }
 
-  getPages(itemsPerPage = 30) {
+  getPages(itemsPerPage) {
     let pages = [];
 
     for (let i = 0; i < this.length; i += itemsPerPage) {

@@ -13,6 +13,10 @@ const ProfileCard = ({ name, email, location, github, twitter, linkedin, phone, 
     if (text && !name.toLowerCase().includes(text.toLowerCase())) {
       setShow(false);
     }
+    // if text matches office exectly -> show it
+    if(text && text.toLowerCase() === location.toLowerCase()) {
+      setShow(true);
+    }
   }, [text])
 
   return (
