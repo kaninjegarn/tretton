@@ -1,0 +1,8 @@
+@mixin socialLinksStyle($image) {
+  background-image: url($image);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 0 5px;
+  background-repeat: no-repeat;
+}

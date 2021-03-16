@@ -1,11 +1,14 @@
 import React from 'react';
-import { ProfileList } from '../index';
+import { ProfileList, Input } from '../index';
+import './Main.scss';
 
-export default ({profiles}) => {
-  console.log(profiles)
+const Main = () => {
   return (
-    <div>
+    <div className="main">
+      <Input />
       <ProfileList />
     </div>
   )
 }
+
+export default Main;
