@@ -7,17 +7,17 @@ const ProfileList = ({profiles}) => {
   const [sort, setSort] = useState('asc');
   const [currentPage, setCurrentPage] = useState(0);
 
+  // Check if profiles is set
   if (profiles) {
     let tempProfiles = [...profiles]
     let sorted;
-    if(sort === 'asc') {
+    if (sort === 'asc') {
       sorted = tempProfiles.sort(orderByAsc);
     } else if (sort === 'desc') {
       sorted = tempProfiles.sort(orderByDesc);
     }
     var pages = getPages(sorted, 50);
   }
-
   // This is used to give every profileCard a unique key
   let key = 0
   return (

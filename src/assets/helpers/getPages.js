@@ -1,3 +1,4 @@
+// Function that decides how many employees there should be on every page
 const getPages = (arr, itemsPerPage) => {
   let pages = [];
 

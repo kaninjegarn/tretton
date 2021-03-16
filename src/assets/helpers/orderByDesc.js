@@ -1,3 +1,4 @@
+// compare every element with another and sorting it Z-A
 function orderByDesc(a, b) {
   if (b.name < a.name) {
     return -1;
