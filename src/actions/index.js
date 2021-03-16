@@ -3,7 +3,6 @@ import store from "../store";
 import {
   SET_PROFILES,
   SET_TEXT,
-  SET_SORT,
 } from "../types";
 
 export const fetchData = async () => {
@@ -17,7 +16,6 @@ export const fetchData = async () => {
   });
 };
 
-
 export const setProfiles = (profiles) => {
   store.dispatch({
     type: SET_PROFILES,
@@ -29,12 +27,5 @@ export const setText = (text) => {
   store.dispatch({
     type: SET_TEXT,
     text: text
-  });
-}
-
-export const setSort = (sort) => {
-  store.dispatch({
-    type: SET_SORT,
-    sort: sort
   });
 }

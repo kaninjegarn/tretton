@@ -14,6 +14,7 @@ const tempArr2 = [
   { "name": "Alban Nurkollari", "email": "nyona.ahexbyynev@gerggba82.pbz", }
 ];
 
+  // see if my function cuts the array where is should.
   test('split array1', () => {
     const combine1 = getPages(tempArr, 3);
     expect(combine1.length).toEqual(1)
