@@ -10,7 +10,7 @@ const ProfileList = ({profiles}) => {
   // Check if profiles is set
   if (profiles) {
     let tempProfiles = [...profiles]
-    var sorted;
+    let sorted;
     if (sort === 'asc') {
       sorted = tempProfiles.sort(orderByAsc);
     } else if (sort === 'desc') {
@@ -24,19 +24,10 @@ const ProfileList = ({profiles}) => {
     <>
     <div className="sorting">
       <div 
-        className="sorting__button"
-        onClick={() => {
-          setSort('asc');
-          setCurrentPage(0);
-        }}
+        className="sorting__button" onClick={() => { setSort('asc');setCurrentPage(0);}}
         >Sort by name a-ö
       </div>
-      <div 
-        className="sorting__button"
-        onClick={() => {
-          setSort('desc');
-          setCurrentPage(0);
-        }}
+      <div className="sorting__button" onClick={() => {setSort('desc');setCurrentPage(0);}}
         >sort by name ö-a
       </div>
     </div>
@@ -55,12 +46,10 @@ const ProfileList = ({profiles}) => {
             <ProfileCard
               key={key++}
               name={profile.name}
-              email={profile.email}
               location={profile.office}
               github={profile.gitHub}
               twitter={profile.twitter}
               linkedin={profile.linkedIn}
-              phone={profile.phoneNumber}
               image={profile.imagePortraitUrl}
             />)
         }

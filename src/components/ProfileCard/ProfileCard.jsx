@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ProfileCard.scss';
 
-const ProfileCard = ({ name, email, location, github, twitter, linkedin, phone, image, text}) => {
+const ProfileCard = ({ name, location, github, twitter, linkedin, image, text}) => {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
